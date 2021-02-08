@@ -37,5 +37,29 @@ class App {
     Dinheiro d7 = new Dinheiro("R$ 2567,89");
     System.out.println(d7.getReais() == 2567);
     System.out.println(d7.getCentavos() == 89);
+
+    Dinheiro d8 = new Dinheiro(9.75);
+    System.out.println(d8.getReais() == 9);
+    System.out.println(d8.getCentavos() == 75);
+
+    Dinheiro d9 = new Dinheiro(17.569); // é truncado nas duas casas, não arredondado!
+    System.out.println(d9.getReais() == 17);
+    System.out.println(d9.getCentavos() == 56);
+
+    d3.somar(d4);
+    System.out.println(d3.getReais() == 203);
+    System.out.println(d3.getCentavos() == 45);
+
+    d5.somar(100);
+    System.out.println(d5.getReais() == 445);
+    System.out.println(d5.getCentavos() == 75);
+
+    d6.somar(1.90);
+    System.out.println(d6.getReais() == 1000002);
+    System.out.println(d6.getCentavos() == 01);
+
+    d7.somar("R$ 998871,86986");
+    System.out.println(d7.getReais() == 1001385);
+    System.out.println(d7.getCentavos() == 75);
   }
 }

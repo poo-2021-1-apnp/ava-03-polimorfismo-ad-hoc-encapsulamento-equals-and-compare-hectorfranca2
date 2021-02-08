@@ -1,7 +1,5 @@
 package modelo;
 
-import java.text.DecimalFormat;
-
 public class Dinheiro {
 
   private int centavos;
@@ -18,15 +16,17 @@ public class Dinheiro {
   }
 
   public Dinheiro(double reais) {
-    String centavos[] = Double.toString(reais).split(".");
-    this.centavos = (((int) reais) * 100) + Integer.parseInt(centavos[1]);
+    String numero_texto = Double.toString(reais).replace(".", ",");
+    String valor[] = numero_texto.split(",");
+    this.centavos = (Integer.parseInt(valor[0]) * 100)
+        + Integer.parseInt(valor[1].length() > 1 ? valor[1].substring(0, 2) : valor[1]);
   }
 
   public Dinheiro(String reais) {
-    String reais_numero = reais.replaceAll("[\\D]", "");
-    String centavos[] = reais.split(",");
-    String numero_real = reais_numero.substring(0, reais_numero.length() - 2);
-    this.centavos = (Integer.parseInt(numero_real) * 100) + Integer.parseInt(centavos[1]);
+    String numero_texto = reais.replace("R$ ", "");
+    String valor[] = numero_texto.split(",");
+    this.centavos = (Integer.parseInt(valor[0]) * 100)
+        + Integer.parseInt(valor[1].length() > 1 ? valor[1].substring(0, 2) : valor[1]);
   }
 
   // CONSULTA
@@ -49,15 +49,17 @@ public class Dinheiro {
   }
 
   public void somar(double d) {
-    String centavos[] = Double.toString(d).split(".");
-    this.centavos += (((int) d) * 100) + Integer.parseInt(centavos[1]);
+    String numero_texto = Double.toString(d).replace(".", ",");
+    String valor[] = numero_texto.split(",");
+    this.centavos += (Integer.parseInt(valor[0]) * 100)
+        + Integer.parseInt(valor[1].length() > 1 ? valor[1].substring(0, 2) : valor[1]);
   }
 
   public void somar(String d) {
-    String d_numero = d.replaceAll("[\\D]", "");
-    String centavos[] = d.split(",");
-    String numero_real = d_numero.substring(0, d_numero.length() - 2);
-    this.centavos += (Integer.parseInt(numero_real) * 100) + Integer.parseInt(centavos[1]);
+    String numero_texto = d.replace("R$ ", "");
+    String valor[] = numero_texto.split(",");
+    this.centavos += (Integer.parseInt(valor[0]) * 100)
+        + Integer.parseInt(valor[1].length() > 1 ? valor[1].substring(0, 2) : valor[1]);
   }
 
   public void imprimir() { // Não é ilegal imprimir Dinheiro? 😏
