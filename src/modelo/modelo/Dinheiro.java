@@ -71,4 +71,18 @@ public class Dinheiro {
     System.out.println(String.format("R$ %d,%02d", this.getReais(), this.getCentavos()));
   }
 
+  @Override
+  public boolean equals(Object outroObjeto) {
+    if (this == outroObjeto)
+      return true;
+    if (null == outroObjeto)
+      return false;
+    if (outroObjeto instanceof Dinheiro) {
+      Dinheiro outroDinheiro = (Dinheiro) outroObjeto;
+      if (this.centavos == outroDinheiro.centavos)
+        return true;
+    }
+    return false;
+  }
+
 }

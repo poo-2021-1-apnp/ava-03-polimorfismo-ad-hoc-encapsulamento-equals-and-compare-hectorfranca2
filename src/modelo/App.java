@@ -61,5 +61,26 @@ class App {
     d7.somar("R$ 998817,86986");
     System.out.println(d7.getReais() == 1001385);
     System.out.println(d7.getCentavos() == 75);
+
+    // ETAPA 2 - AVALIAR EQUIVALÊNCIA DE DINHEIRO COM EQUALS
+
+    System.out.println("---------------------------------------");
+    System.out.println(" Etapa 2 - Avaliar a equivalência de Dinheiro com equals");
+    System.out.println("---------------------------------------");
+
+    d8 = new Dinheiro(8, 98);
+    d9 = new Dinheiro(8, 99);
+    Dinheiro d10 = null;
+    Dinheiro d11 = new Dinheiro(8, 98);
+    Dinheiro d12 = d8;
+
+    System.out.println(d8.equals(d9) == false);
+    System.out.println(d8.equals(d10) == false);
+    System.out.println(d8.equals(d11) == true);
+    System.out.println(d8.equals(d12) == true);
+
+    System.out.println(new Dinheiro(3.43).equals(new Dinheiro(3, 43)));
+    System.out.println(new Dinheiro("R$ 8,97").equals(new Dinheiro(8, 97)));
+    System.out.println(!new Dinheiro("R$ 5,43").equals(null));
   }
 }
