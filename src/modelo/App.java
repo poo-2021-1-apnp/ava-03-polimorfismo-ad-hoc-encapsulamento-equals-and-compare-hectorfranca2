@@ -1,4 +1,5 @@
 import modelo.Dinheiro;
+import modelo.Veiculo;
 import java.util.Arrays;
 
 class App {
@@ -119,5 +120,24 @@ class App {
     System.out.println(dindin[2].equals(d12));
     System.out.println(dindin[3].equals(d15));
     System.out.println(dindin[4].equals(d13));
+
+    // ETAPA 5 - IMPLEMENTAR EQUALS EM VEICULO
+
+    System.out.println("---------------------------------------");
+    System.out.println(" Etapa 5 - Implementar equals em Veiculo");
+    System.out.println("---------------------------------------");
+
+    Veiculo a1 = new Veiculo("FTH4R58", "Renault", "Duster", 16);
+    Veiculo a2 = new Veiculo("WEH4R42", "Ford", "Fiesta", 16);
+    Veiculo a3 = new Veiculo("FTH4R58", "Volkswagen", "Gol", 10);
+    Veiculo a4 = new Veiculo("LKI5H48", "Renault", "Duster", 16);
+
+    System.out.println(!a1.equals(a2));
+    System.out.println(!a1.equals(a4));
+    System.out.println(!a2.equals(a4));
+    System.out.println(a1.equals(a3)); // true - placa clonada
+
+    System.out.println(new Veiculo("WEH4R42", "Ford", "Fiesta", 16).equals(a2));
+    System.out.println(!new Veiculo("LKI8H48", "Renault", "Duster", 16).equals(a4));
   }
 }
