@@ -1,5 +1,8 @@
 package modelo;
 
+import java.text.DecimalFormat;
+import java.math.RoundingMode;
+
 public class Dinheiro {
 
   private int centavos;
@@ -16,10 +19,11 @@ public class Dinheiro {
   }
 
   public Dinheiro(double reais) {
-    String numero_texto = Double.toString(reais).replace(".", ",");
+    DecimalFormat df = new DecimalFormat("#,##0.00");
+    df.setRoundingMode(RoundingMode.DOWN);
+    String numero_texto = df.format(reais).replace(".", ",");
     String valor[] = numero_texto.split(",");
-    this.centavos = (Integer.parseInt(valor[0]) * 100)
-        + Integer.parseInt(valor[1].length() > 1 ? valor[1].substring(0, 2) : valor[1]);
+    this.centavos = (Integer.parseInt(valor[0]) * 100) + Integer.parseInt(valor[1]);
   }
 
   public Dinheiro(String reais) {
@@ -49,10 +53,11 @@ public class Dinheiro {
   }
 
   public void somar(double d) {
-    String numero_texto = Double.toString(d).replace(".", ",");
+    DecimalFormat df = new DecimalFormat("#,##0.00");
+    df.setRoundingMode(RoundingMode.DOWN);
+    String numero_texto = df.format(d).replace(".", ",");
     String valor[] = numero_texto.split(",");
-    this.centavos += (Integer.parseInt(valor[0]) * 100)
-        + Integer.parseInt(valor[1].length() > 1 ? valor[1].substring(0, 2) : valor[1]);
+    this.centavos += (Integer.parseInt(valor[0]) * 100) + Integer.parseInt(valor[1]);
   }
 
   public void somar(String d) {

@@ -58,7 +58,7 @@ class App {
     System.out.println(d6.getReais() == 1000002);
     System.out.println(d6.getCentavos() == 01);
 
-    d7.somar("R$ 998871,86986");
+    d7.somar("R$ 998817,86986");
     System.out.println(d7.getReais() == 1001385);
     System.out.println(d7.getCentavos() == 75);
   }
