@@ -3,7 +3,7 @@ package modelo;
 import java.text.DecimalFormat;
 import java.math.RoundingMode;
 
-public class Dinheiro {
+public class Dinheiro implements Comparable<Dinheiro> {
 
   private int centavos;
 
@@ -83,6 +83,11 @@ public class Dinheiro {
         return true;
     }
     return false;
+  }
+
+  @Override
+  public int compareTo(Dinheiro outroDinheiro) {
+    return this.centavos - outroDinheiro.centavos;
   }
 
 }

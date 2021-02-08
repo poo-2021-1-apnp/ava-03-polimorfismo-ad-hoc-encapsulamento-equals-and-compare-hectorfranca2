@@ -1,4 +1,5 @@
 import modelo.Dinheiro;
+import java.util.Arrays;
 
 class App {
   public static void main(String[] args) {
@@ -82,5 +83,41 @@ class App {
     System.out.println(new Dinheiro(3.43).equals(new Dinheiro(3, 43)));
     System.out.println(new Dinheiro("R$ 8,97").equals(new Dinheiro(8, 97)));
     System.out.println(!new Dinheiro("R$ 5,43").equals(null));
+
+    // ETAPA 3 - TORNAR DINHEIRO COMPARÁVEL
+
+    System.out.println("---------------------------------------");
+    System.out.println(" Etapa 3 - Tornar Dinheiro comparável");
+    System.out.println("---------------------------------------");
+
+    d12 = new Dinheiro(4, 30);
+    Dinheiro d13 = new Dinheiro(987, 14);
+    Dinheiro d14 = new Dinheiro(0, 1);
+    Dinheiro d15 = new Dinheiro(17, 9);
+    Dinheiro d16 = new Dinheiro(4, 30);
+
+    System.out.println(d12.compareTo(d13) < 0);
+    System.out.println(d12.compareTo(d14) > 0);
+    System.out.println(d12.compareTo(d15) < 0);
+    System.out.println(d12.compareTo(d16) == 0);
+
+    Comparable d17 = new Dinheiro(8);
+    Comparable d18 = new Dinheiro(9);
+    Comparable d19 = new Dinheiro(8);
+    System.out.println(d17.compareTo(d18) < 0);
+    System.out.println(d17.compareTo(d19) == 0);
+    System.out.println(d18.compareTo(d17) > 0);
+
+    Dinheiro[] dindin = { d12, d13, d14, d15, d16 };
+
+    // Classifique em ordem crescente através de java.util.Arrays
+
+    Arrays.sort(dindin);
+
+    System.out.println(dindin[0].equals(d14));
+    System.out.println(dindin[1].equals(d12));
+    System.out.println(dindin[2].equals(d12));
+    System.out.println(dindin[3].equals(d15));
+    System.out.println(dindin[4].equals(d13));
   }
 }
