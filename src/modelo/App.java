@@ -1,5 +1,6 @@
 import modelo.Dinheiro;
 import modelo.Veiculo;
+import modelo.Data;
 import java.util.Arrays;
 
 class App {
@@ -120,6 +121,82 @@ class App {
     System.out.println(dindin[2].equals(d12));
     System.out.println(dindin[3].equals(d15));
     System.out.println(dindin[4].equals(d13));
+
+    // ETAPA 4 - IMPLEMENTE DATA
+
+    System.out.println("---------------------------------------");
+    System.out.println(" Etapa 4 - Implemente Data");
+    System.out.println("---------------------------------------");
+
+    Data data = new Data(5, 3, 1999);
+    System.out.println(data.getDia() == 5);
+    System.out.println(data.getMes() == 3);
+    System.out.println(data.getAno() == 1999);
+
+    data = new Data("04/02/2000");
+    System.out.println(data.getDia() == 4);
+    System.out.println(data.getMes() == 02);
+    System.out.println(data.getAno() == 2000);
+
+    data = new Data("04-02-2000");
+    System.out.println(data.getDia() == 4);
+    System.out.println(data.getMes() == 02);
+    System.out.println(data.getAno() == 2000);
+
+    data.somarDia(15);
+    System.out.println(data.getDia() == 19);
+    System.out.println(data.getMes() == 02);
+    System.out.println(data.getAno() == 2000);
+
+    data.somarMes(15);
+    System.out.println(data.getDia() == 19);
+    System.out.println(data.getMes() == 05);
+    System.out.println(data.getAno() == 2001);
+
+    data.somarAno(500);
+    System.out.println(data.getDia() == 19);
+    System.out.println(data.getMes() == 05);
+    System.out.println(data.getAno() == 2501);
+
+    // TRY CATCH
+    try {
+      data = new Data(-1, 2, 1999);
+    } catch (Exception e) {
+      System.err.println(e.getMessage());
+    }
+
+    try {
+      data = new Data(5, 2, 9999999); // erro: ano entre 1 e 3000
+    } catch (Exception e) {
+      System.err.println(e.getMessage());
+    }
+
+    // EQUALS
+    Data date1 = new Data("05/05/2006");
+    Data date2 = new Data(18, 4, 2002);
+    Data date3 = new Data(5, 5, 2006);
+
+    System.out.println(!date1.equals(date2));
+    System.out.println(date1.equals(date3));
+    System.out.println(!date2.equals(date3));
+
+    System.out.println(new Data("01-04-1998").equals(new Data("01/04/1998")));
+
+    // COMPARE TO
+    Data data1 = new Data("04/05/2000");
+    Data data2 = new Data(13, 5, 1888);
+    Data data3 = new Data(4, 5, 2000);
+
+    System.out.println(data1.compareTo(data2) > 0);
+    System.out.println(data2.compareTo(data3) < 0);
+    System.out.println(data3.compareTo(data1) == 0);
+
+    Comparable da1 = new Data("09/10/1455");
+    Comparable da2 = new Data(12, 3, 2001);
+    Comparable da3 = da1;
+
+    System.out.println(da1.compareTo(da2) < 0);
+    System.out.println(da1.compareTo(da1) == 0);
 
     // ETAPA 5 - IMPLEMENTAR EQUALS EM VEICULO
 
